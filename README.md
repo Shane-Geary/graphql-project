@@ -1,2 +1,1 @@
 # graphql-project
-# graphql-project
