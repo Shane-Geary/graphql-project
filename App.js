@@ -10,15 +10,15 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 
-const schema = require('./server/schema/Schema')
+const schema = require('./server/schema/schema')
 // const schema = require('./schema/TypesSchema')
 
-const App = express()
+const app = express()
 const port = process.env.PORT || 4000
 
-App.use(cors())
+app.use(cors())
 
-App.use('/graphql', graphqlHTTP({
+app.use('/graphql', graphqlHTTP({
     graphiql: true,
     schema: schema
 }))
@@ -26,7 +26,7 @@ App.use('/graphql', graphqlHTTP({
 mongoose.connect(`mongodb+srv://${process.env.mongoUserName}:${process.env.mongoUserPassword}@graphqlcluster.qj6bf.mongodb.net/${process.env.mongoDatabase}?retryWrites=true&w=majority`
 ,{useNewUrlParser: true, useUnifiedTopology: true}
 ).then(() => {
-    App.listen({port: port}, () => { 
+    app.listen({port: port}, () => { 
         console.log(process.env.mongoUserName)
         //localhost:4000
         console.log('listening for requests on my awesome port 4000');
