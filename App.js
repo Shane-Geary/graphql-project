@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 
-const schema = require('./server/schema/schema')
+const schema = require('./graphql-projectv1/server/schema/schema')
 // const schema = require('./schema/TypesSchema')
 
 const app = express()
